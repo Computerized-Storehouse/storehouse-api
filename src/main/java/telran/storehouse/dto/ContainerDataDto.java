@@ -11,6 +11,6 @@ public record ContainerDataDto(@NotNull(message = MISSING_CONTAINER_ID) long con
 		@NotNull(message = MISSING_CONTAINER_CURRENT_VALUE) @Max(value = 100, message = WRONG_CONTAINER_PERCENT_MAX_VALUE) @Min(value = 0, message = WRONG_CONTAINER_PERCENT_MIN_VALUE) double containerCurrentValue,
 		@NotEmpty(message = MISSING_CONTAINER_STATUS) String status,
 		@NotNull(message = MISSING_THRESHOLD_VALUE) @Max(value = 100, message = WRONG_CONTAINER_PERCENT_MAX_VALUE) @Min(value = 0, message = WRONG_CONTAINER_PERCENT_MIN_VALUE) double thresholdValue,
-		@Valid @NotNull(message = MISSING_PRODUCT_DATA) Products product) {
+		@Valid @NotNull(message = MISSING_PRODUCT_DATA) Product product) {
 
 }
