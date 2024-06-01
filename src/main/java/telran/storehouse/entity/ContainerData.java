@@ -31,9 +31,11 @@ public class ContainerData {
 	Double containerMaxValue;
 
 	@Column(name = "container_current_value", nullable = false)
+	@Setter
 	double containerCurrentValue;
 
 	@Column(nullable = false)
+	@Setter
 	String status;
 
 	@Column(name = "threshold_value", nullable = false)
