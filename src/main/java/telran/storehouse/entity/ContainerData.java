@@ -32,14 +32,14 @@ public class ContainerData {
 
 	@Column(name = "container_current_value", nullable = false)
 	@Setter
-	double containerCurrentValue;
+	Double containerCurrentValue;
 
 	@Column(nullable = false)
 	@Setter
 	String status;
 
 	@Column(name = "threshold_value", nullable = false)
-	double thresholdValue;
+	Double thresholdValue;
 
 	@ManyToOne
 	@JoinColumn(nullable = false)
