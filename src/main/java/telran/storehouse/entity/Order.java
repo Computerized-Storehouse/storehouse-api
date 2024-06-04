@@ -17,7 +17,7 @@ import telran.storehouse.dto.ProductDto;
 @Entity
 @Getter
 @NoArgsConstructor
-@Table(name = "order")
+@Table(name = "order_table")
 public class Order {
 	@Id
 	@Column(name = "oreder_id")
