@@ -42,7 +42,7 @@ public class ContainerData {
 	Double thresholdValue;
 
 	@ManyToOne
-	@JoinColumn(nullable = false)
+	@JoinColumn(name = "product", nullable = false)
 	@Setter
 	Product product;
 
