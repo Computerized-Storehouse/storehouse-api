@@ -9,12 +9,14 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import telran.storehouse.dto.ContainerDataDto;
 import telran.storehouse.dto.ProductDto;
 
 @Entity
 @Getter
 @NoArgsConstructor
+@ToString
 @Table(name = "container_data")
 public class ContainerData {
 	@Id

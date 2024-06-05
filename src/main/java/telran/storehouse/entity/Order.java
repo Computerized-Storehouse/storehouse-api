@@ -11,12 +11,14 @@ import jakarta.persistence.TemporalType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import telran.storehouse.dto.OrderDataDto;
 import telran.storehouse.dto.ProductDto;
 
 @Entity
 @Getter
 @NoArgsConstructor
+@ToString
 @Table(name = "order_table")
 public class Order {
 	@Id
