@@ -64,6 +64,6 @@ public class ContainerData {
 
 	public ContainerDataDto build() {
 		return new ContainerDataDto(containerId, sensorUsedId, coordinates, containerMaxValue, containerCurrentValue,
-				status, thresholdValue, new ProductDto(product.productName, product.productUnit));
+				status, thresholdValue, new ProductDto(product.getProductName(), product.getProductUnit()));
 	}
 }
