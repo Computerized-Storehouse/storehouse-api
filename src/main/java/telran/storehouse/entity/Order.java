@@ -72,7 +72,7 @@ public class Order {
 
 	public OrderDataDto build() {
 		return new OrderDataDto(orderId, containerId, coordinates,
-				new ProductDto(product.productName, product.productUnit), requiredQuantity, openingTime, closingTime,
+				new ProductDto(product.getProductName(), product.getProductUnit()), requiredQuantity, openingTime, closingTime,
 				creator, status);
 	}
 
