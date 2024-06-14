@@ -1,9 +1,12 @@
 package telran.storehouse.entity;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinColumns;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
@@ -30,7 +33,8 @@ public class CompletedOrder {
 	String coordinates;
 
 	@ManyToOne
-	@JoinColumn(nullable = false)
+	@EmbeddedId
+	@JoinColumns({@JoinColumn(name="product_name", nullable = false), @JoinColumn(name="product_unit", nullable = false)})
 	Product product;
 
 	@Column(name = "required_quantity", nullable = false)
