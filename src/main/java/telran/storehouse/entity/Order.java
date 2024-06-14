@@ -22,7 +22,7 @@ import telran.storehouse.dto.ProductDto;
 @Table(name = "order_table")
 public class Order {
 	@Id
-	@Column(name = "oreder_id")
+	@Column(name = "order_id")
 	Long orderId;
 
 	@Column(unique = true, name = "container_id", nullable = false)
