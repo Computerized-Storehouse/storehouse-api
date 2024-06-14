@@ -32,7 +32,7 @@ public class Order {
 	String coordinates;
 
 	@ManyToOne
-	@JoinColumn(nullable = false)
+	@JoinColumn(name = "product", nullable = false)
 	@Setter
 	Product product;
 
