@@ -2,6 +2,8 @@ package telran.storehouse.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -11,16 +13,19 @@ import jakarta.persistence.TemporalType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import telran.storehouse.dto.OrderDataDto;
+import telran.storehouse.dto.OrderStatus;
 import telran.storehouse.dto.ProductDto;
 
 @Entity
 @Getter
 @NoArgsConstructor
-@Table(name = "order")
+@ToString
+@Table(name = "order_table")
 public class Order {
 	@Id
-	@Column(name = "oreder_id")
+	@Column(name = "order_id")
 	Long orderId;
 
 	@Column(unique = true, name = "container_id", nullable = false)
@@ -30,7 +35,7 @@ public class Order {
 	String coordinates;
 
 	@ManyToOne
-	@JoinColumn(nullable = false)
+	@JoinColumn(name = "product", nullable = false)
 	@Setter
 	Product product;
 
@@ -47,11 +52,12 @@ public class Order {
 
 	String creator;
 
+	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
-	String status;
+	OrderStatus status;
 
 	public Order(Long orderId, Long containerId, String coordinates, Long requiredQuantity, Long openingTime,
-			Long closingTime, String creator, String status) {		
+			Long closingTime, String creator, OrderStatus status) {		
 		this.orderId = orderId;
 		this.containerId = containerId;
 		this.coordinates = coordinates;
@@ -70,7 +76,7 @@ public class Order {
 
 	public OrderDataDto build() {
 		return new OrderDataDto(orderId, containerId, coordinates,
-				new ProductDto(product.productName, product.productUnit), requiredQuantity, openingTime, closingTime,
+				new ProductDto(product.getProductName(), product.getProductUnit()), requiredQuantity, openingTime, closingTime,
 				creator, status);
 	}
 

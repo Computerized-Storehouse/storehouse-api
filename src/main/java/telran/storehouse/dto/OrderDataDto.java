@@ -12,6 +12,6 @@ public record OrderDataDto(@NotNull(message = MISSING_ORDER_ID) long orderId,
 		@NotNull(message = MISSING_REQUIRED_QUANTITY) long requiredQuantity,
 		@NotNull(message = MISSING_OPENING_TIME) long openingTime,
 		@NotNull(message = MISSING_CLOSING_TIME) long closingTime, @NotEmpty(message = MISSING_CREATOR) String creator,
-		@NotEmpty(message = MISSING_ORDER_STATUS) String status) {
+		@NotEmpty(message = MISSING_ORDER_STATUS) OrderStatus status) {
 
 }
