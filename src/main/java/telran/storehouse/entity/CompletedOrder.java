@@ -29,7 +29,7 @@ public class CompletedOrder {
 	String coordinates;
 
 	@ManyToOne
-	@JoinColumn(nullable = false)
+	@JoinColumn
 	Product product;
 
 	@Column(name = "required_quantity", nullable = false)

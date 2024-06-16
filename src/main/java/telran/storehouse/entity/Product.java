@@ -17,7 +17,7 @@ import telran.storehouse.dto.ProductDto;
 
 public class Product {
 	@Id
-	@Column(name = "product_name")
+	@Column(name = "product_name",nullable = false)
 	String productName;
 	@Column(name = "product_unit", nullable = false)
 	String productUnit;
@@ -27,6 +27,6 @@ public class Product {
 	}
 
 	public ProductDto build() {
-		return new ProductDto(productName, productUnit);
+		return new ProductDto(getProductName(), getProductUnit());
 	}
 }

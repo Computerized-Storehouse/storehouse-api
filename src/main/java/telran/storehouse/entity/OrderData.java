@@ -1,7 +1,6 @@
 package telran.storehouse.entity;
 
 import jakarta.persistence.*;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,8 +10,8 @@ import telran.storehouse.dto.ProductDto;
 @Entity
 @Getter
 @NoArgsConstructor
-@Table(name = "order_table")
-public class Order {
+@Table(name = "order_data")
+public class OrderData {
 	@Id
 	@Column(name = "order_id")
 	Long orderId;
@@ -44,7 +43,7 @@ public class Order {
 	@Column(nullable = false)
 	String status;
 
-	public Order(Long orderId, Long containerId, String coordinates, Long requiredQuantity, Long openingTime,
+	public OrderData(Long orderId, Long containerId, String coordinates, Long requiredQuantity, Long openingTime,
 			Long closingTime, String creator, String status) {		
 		this.orderId = orderId;
 		this.containerId = containerId;
