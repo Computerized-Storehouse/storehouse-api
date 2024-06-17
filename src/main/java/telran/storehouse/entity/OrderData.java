@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import telran.storehouse.dto.OrderDataDto;
+import telran.storehouse.dto.OrderStatus;
 import telran.storehouse.dto.ProductDto;
 
 @Entity
@@ -40,11 +41,12 @@ public class OrderData {
 
 	String creator;
 
+	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
-	String status;
+	OrderStatus status;
 
 	public OrderData(Long orderId, Long containerId, String coordinates, Long requiredQuantity, Long openingTime,
-			Long closingTime, String creator, String status) {		
+			Long closingTime, String creator, OrderStatus status) {		
 		this.orderId = orderId;
 		this.containerId = containerId;
 		this.coordinates = coordinates;
@@ -55,10 +57,9 @@ public class OrderData {
 		this.status = status;
 	}
 
-	public static Order of(OrderDataDto orderDataDto) {
-		return new Order(orderDataDto.orderId(), orderDataDto.containerId(), orderDataDto.coordinates(),
-				orderDataDto.requiredQuantity(), orderDataDto.openingTime(), orderDataDto.closingTime(),
-				orderDataDto.creator(), orderDataDto.status());
+	public static OrderData of(OrderDataDto orderDataDto) {
+		return new OrderData(orderDataDto.orderId(),orderDataDto.containerId(),orderDataDto.coordinates(),orderDataDto.requiredQuantity(),
+				orderDataDto.openingTime(),orderDataDto.closingTime(),orderDataDto.creator(),orderDataDto.status());
 	}
 
 	public OrderDataDto build() {

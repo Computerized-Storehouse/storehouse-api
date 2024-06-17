@@ -26,6 +26,5 @@
 			<optional>true</optional>
 			<version>1.18.32</version>
 		</dependency>
-		
 	</dependencies>
 </project>

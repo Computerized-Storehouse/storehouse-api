@@ -7,18 +7,20 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import telran.storehouse.dto.ProductDto;
 
 @Entity
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @Table(name = "product")
-
 public class Product {
 	@Id
-	@Column(name = "product_name",nullable = false)
+	@Column(name = "product_name")
 	String productName;
+
 	@Column(name = "product_unit", nullable = false)
 	String productUnit;
 
@@ -27,6 +29,6 @@ public class Product {
 	}
 
 	public ProductDto build() {
-		return new ProductDto(getProductName(), getProductUnit());
+		return new ProductDto(productName, productUnit);
 	}
 }

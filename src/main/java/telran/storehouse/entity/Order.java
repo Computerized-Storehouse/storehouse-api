@@ -1,16 +1,27 @@
 package telran.storehouse.entity;
 
-import jakarta.persistence.*;
-
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import telran.storehouse.dto.OrderDataDto;
+import telran.storehouse.dto.OrderStatus;
 import telran.storehouse.dto.ProductDto;
 
 @Entity
 @Getter
 @NoArgsConstructor
+@ToString
 @Table(name = "order_table")
 public class Order {
 	@Id
@@ -22,9 +33,9 @@ public class Order {
 
 	@Column(nullable = false)
 	String coordinates;
-	
+
 	@ManyToOne
-	@JoinColumn(name= "product",nullable = false)
+	@JoinColumn(name = "product", nullable = false)
 	@Setter
 	Product product;
 
@@ -41,11 +52,13 @@ public class Order {
 
 	String creator;
 
+	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
-	String status;
+	@Setter
+	OrderStatus status;
 
 	public Order(Long orderId, Long containerId, String coordinates, Long requiredQuantity, Long openingTime,
-			Long closingTime, String creator, String status) {		
+			Long closingTime, String creator, OrderStatus status) {		
 		this.orderId = orderId;
 		this.containerId = containerId;
 		this.coordinates = coordinates;
