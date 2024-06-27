@@ -15,7 +15,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import telran.storehouse.dto.OrderDataDto;
 import telran.storehouse.dto.OrderStatus;
+import telran.storehouse.dto.ProductDto;
 
 @Entity
 @Getter
@@ -61,6 +63,5 @@ public class CompletedOrder {
 		return new CompletedOrder(order.orderId, order.containerId, order.coordinates, order.product,
 				order.requiredQuantity, order.openingTime, order.closingTime, order.creator, order.status);
 	}
-
-
+	
 }
